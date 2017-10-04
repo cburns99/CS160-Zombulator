@@ -1,15 +1,15 @@
 // zombulator by Cameron Burns
 
+var zombieX = 50;
+
 function setup() {
 	createCanvas(800, 800);
-
 }
 
 function draw() {
 	fill(260, 0, 0);
-	ellipse(50, 50, 80, 80);
+	ellipse(zombieX, 50, 80, 80);
 	fill(150, 150, 200);
 	ellipse(200, 100, 80, 80);
-	fill(300, 200, 170);
-	ellipse(300, 150, 60, 60);
+	zombieX = zombieX +1;
 }
