@@ -7,6 +7,7 @@ function setup() {
 }
 
 function draw() {
+	background(255, 255, 255);
 	fill(260, 0, 0);
 	ellipse(zombieX, 50, 80, 80);
 	fill(150, 150, 200);
