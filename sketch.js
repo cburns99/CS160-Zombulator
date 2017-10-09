@@ -20,7 +20,7 @@ function draw() {
 	zombieA = zombieA + zombieAspeed;
 
 	if (zombieA <= endPosition && zombieAspeed <= 0) {
-		zombieAspeed = random(3, 6)
+		zombieAspeed = random(-3, -6)
 		zombieAcolor(random(50, 255), random(50, 255), random(50, 255));
 		zombieAsize = random(30, 200);
 	}
