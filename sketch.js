@@ -6,29 +6,45 @@ var backgroundColor;
 
 const MIN_SIZE = 5;
 const MAX_SIZE = 50;
-const NUMBER_OF_ZOMBIES = 100;
-const NUMBER_OF_HUMANS = 100;
-
-var zombies;
-
-var humans;
+const POPULATION_SIZE = 500;
+var population = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   backgroundColor = color(245, 255, 245);
-  initializeZombies();
-  initializeHumans();
+  initializePopulation();
 }
+
 
 function draw() {
   background(backgroundColor);
   noStroke();
-  drawZombies();
-  moveZombies();
-  drawHumans();
-  moveHumans();
+  drawPopulation();
+  movePopulation();
 }
 
+function initializePopulation() {
+	for (var i = 0; i < POPULATION_SIZE; ++i) {
+		var humanoid_type = random(0, 100);
+		if(humanoid_type <= 50) {
+			population[i] = initializeZombie();
+		} else {
+		  population[i] = initializeHuman();
+		}
+	}
+}
+
+function drawPopulation() {
+	for (var i = 0; i < POPULATION_SIZE; ++i) {
+		population[i].draw();
+	}
+}
+
+function movePopulation() {
+	for (var i = 0; i < POPULATION_SIZE; ++i) {
+			population[i].move();
+	}
+}
 
 // Zombies. Raaahh!
 
