@@ -1,5 +1,5 @@
-
-
+// Zombulator by Cameron Burns
+// CS 160 Exercise 20: Collisions
 
 var backgroundColor;
 
@@ -28,16 +28,17 @@ function draw() {
 }
 
 function handleCollisions() {
-	for(var i = 0; i < POPULATION_SIZE; ++i) {
-		var attacker = population[i];
-		for (var j = i + 1; j < POPULATION_SIZE; ++j) {
-			var target = population[j];
+  for (var i = 0; i < POPULATION_SIZE; ++i) {
+    var attacker = population[i];
+    for (var j = i + 1; j < POPULATION_SIZE; ++j) {
+      var target = population[j];
 
-			if (attacker.isTouching(target)) {
-				print("fight! Fight! Fight!");
-			}
-		}
-	}
+      if (attacker.isTouching(target)) {
+        print("Fight! Fight! Fight!");
+      }
+
+    }
+  }
 }
 
 function initializePopulation() {
@@ -126,7 +127,7 @@ function initializeHuman() {
         ellipse(this.x, this.y, this.size, this.size);
     },
     isTouching: function(target) {
-
+      
     }
   };
 }
