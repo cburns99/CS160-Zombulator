@@ -1,4 +1,4 @@
-// Chevelle 
+
 
 
 var backgroundColor;
