@@ -1,11 +1,10 @@
 // Zombulator by Cameron Burns
-// CS 160 Exercise 20: Collisions
 
 var backgroundColor;
 
-const MIN_SIZE = 5;
+const MIN_SIZE = 10;
 const MAX_SIZE = 50;
-const POPULATION_SIZE = 500;
+const POPULATION_SIZE = 300;
 
 var population = [];
 
@@ -14,7 +13,7 @@ var humanCount = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  backgroundColor = color(245, 255, 245);
+  backgroundColor = color(150,255,255);
   initializePopulation();
 }
 
@@ -28,15 +27,13 @@ function draw() {
 }
 
 function handleCollisions() {
-  for (var i = 0; i < POPULATION_SIZE; ++i) {
+  for(var i = 0; i < POPULATION_SIZE; ++i) {
     var attacker = population[i];
     for (var j = i + 1; j < POPULATION_SIZE; ++j) {
       var target = population[j];
-
       if (attacker.isTouching(target)) {
         print("Fight! Fight! Fight!");
       }
-
     }
   }
 }
@@ -76,11 +73,12 @@ function movePopulation() {
 
 function initializeZombie() {
   return {
+    humanoidType: "zombie",
     x: random(0, windowWidth),
     y: random(0, 200),
-    speed: random(0.25, 3),
+    speed: random(0.5, 5),
     size: random(MIN_SIZE, MAX_SIZE),
-    color: color(random(100, 255), random(50, 150), random(50, 150), 150),
+    color: color(random(150, 255), random(20, 150), random(170, 190), 150),
     move: function() {
       var direction = random(0, 100);
       if (direction < 20) {
@@ -98,18 +96,21 @@ function initializeZombie() {
       ellipse(this.x, this.y, this.size, this.size);
     },
     isTouching: function(target) {
-
+      if (this.humanoidType == target.humanoidType) return false;
+      var distance = dist(this.x, this.y, target.x, target.y);
+      return distance <= (this.size/2 + target.size/2);
     }
   };
 }
 
 function initializeHuman() {
   return {
+    humanoidType: "human",
     x: random(0, windowWidth),
     y: random(windowHeight - 200, windowHeight),
-    speed: random(0.25, 3),
+    speed: random(0.25, 6),
     size: random(MIN_SIZE, MAX_SIZE),
-    color: color(random(50, 150), random(50, 150), random(150, 255), 150),
+    color: color(random(50, 120), random(100, 150), random(150, 255), 150),
     move: function() {
         var direction = random(0, 100);
         if (direction < 20) {
@@ -127,7 +128,9 @@ function initializeHuman() {
         ellipse(this.x, this.y, this.size, this.size);
     },
     isTouching: function(target) {
-      
+      if (this.humanoidType == target.humanoidType) return false;
+      var distance = dist(this.x, this.y, target.x, target.y);
+      return distance <= (this.size/2 + target.size/2);
     }
   };
 }
