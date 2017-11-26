@@ -2,6 +2,7 @@
 //This is my zombulator project for CS160
 
 var backgroundColor;
+var img;
 
 const MIN_SIZE = 10;
 const MAX_SIZE = 50;
@@ -12,10 +13,17 @@ var population = [];
 var zombieCount = 0;
 var humanCount = 0;
 
+function preload() {
+  img = loadImage("https://raw.githubusercontent.com/cburns99/CS160-Zombulator/master/zombieland.png");
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   backgroundColor = color(150,255,255);
   initializePopulation();
+  loadImage("https://raw.githubusercontent.com/cburns99/CS160-Zombulator/master/zombieland.png", function(img) {
+    image(img, 0 ,0);
+  });
 
 }
 
