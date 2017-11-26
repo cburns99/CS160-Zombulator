@@ -21,10 +21,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   backgroundColor = color(150,255,255);
   initializePopulation();
-  loadImage("https://raw.githubusercontent.com/cburns99/CS160-Zombulator/master/zombieland.png", function(img) {
-    image(img, 0 ,0);
-  });
-
+  image(img, 0 ,0);
+  
 }
 
 function draw() {
