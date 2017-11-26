@@ -1,4 +1,5 @@
 // Zombulator by Cameron Burns
+//This is my zombulator project for CS160
 
 var backgroundColor;
 
@@ -15,6 +16,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   backgroundColor = color(150,255,255);
   initializePopulation();
+
 }
 
 function draw() {
@@ -33,6 +35,7 @@ function handleCollisions() {
       var target = population[j];
       if (attacker.isTouching(target)) {
         print("Fight! Fight! Fight!");
+
       }
     }
   }
@@ -53,7 +56,8 @@ function initializePopulation() {
 
 function drawPopulationCounts() {
   stroke(0);
-  textSize(72);
+  fill(255, 255, 150);
+  textSize(100);
   textAlign(CENTER);
   text("Zombies: " + zombieCount, width / 2, 100);
   text("Humans: " + humanCount, width / 2, height - 100);
@@ -106,11 +110,11 @@ function initializeZombie() {
 function initializeHuman() {
   return {
     humanoidType: "human",
-    x: random(0, windowWidth),
+    x: random(-10, windowWidth),
     y: random(windowHeight - 200, windowHeight),
     speed: random(0.25, 6),
     size: random(MIN_SIZE, MAX_SIZE),
-    color: color(random(50, 120), random(100, 150), random(150, 255), 150),
+    color: color(random(50, 100), random(100, 150), random(50, 80), 120),
     move: function() {
         var direction = random(0, 100);
         if (direction < 20) {
