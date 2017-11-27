@@ -85,7 +85,7 @@ function movePopulation() {
 function initializeZombie() {
   return {
     humanoidType: "zombie",
-    x: random(0, windowWidth),
+    x: random(450, windowWidth),
     y: random(0, 200),
     speed: random(0.5, 5),
     size: random(MIN_SIZE, MAX_SIZE),
@@ -117,7 +117,7 @@ function initializeZombie() {
 function initializeHuman() {
   return {
     humanoidType: "human",
-    x: random(-10, windowWidth),
+    x: random(450, windowWidth),
     y: random(windowHeight - 200, windowHeight),
     speed: random(0.25, 6),
     size: random(MIN_SIZE, MAX_SIZE),
