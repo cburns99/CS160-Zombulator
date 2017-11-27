@@ -21,12 +21,13 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   backgroundColor = color(150,255,255);
   initializePopulation();
-  image(img, 0 ,0);
+
   
 }
 
 function draw() {
   background(backgroundColor);
+  image(img, 0 ,0);
   noStroke();
   drawPopulation();
   movePopulation();
